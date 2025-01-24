@@ -1,5 +1,5 @@
 version: "3.9"
-   
+
 services:
   db:
     image: mysql:8.0
@@ -16,14 +16,14 @@ services:
     build: .
     command: ./wait.sh
     volumes:
-      - .:/gcd-django
+      - .${LOCAL_GCD_DJANGO_LOCATION}:/code/gcd-django
     ports:
       - "8000:8000"
     environment:
       - MYSQL_DATABASE=my-gcd-db
       - MYSQL_USER=gcd-django
       - MYSQL_PASSWORD=db-gcd
-      - MYSQL_ROOT_PASSWORD=root-password 
+      - MYSQL_ROOT_PASSWORD=root-password
     depends_on:
       - db
 volumes:
